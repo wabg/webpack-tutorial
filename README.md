@@ -41,6 +41,7 @@ $ npm init
 2、css加载 Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子demo03依赖CSS-loader 和 style-loader。 安装依赖
  npm install css-loader style-loader --save
 见demo03
+
 3、图片加载需要依赖 file-loader 和 url-loader ，安装依赖
 npm install url-loader file-loader --save
 见demo05
