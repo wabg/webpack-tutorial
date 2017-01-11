@@ -2,7 +2,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
       app: './main.js',
-      vendor: ['jslite'],
+      vendor: ['jquery'],
     },
     output: {
       filename: 'bundle.js'
