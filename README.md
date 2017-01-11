@@ -8,8 +8,7 @@ $ npm install webpack -g(全局安装)
 2.本地安装  
 （1）为npm添加一个package.json配置文件：$ npm init
 //package.json文件可以手工编写，也可以使用npm init命令自动生成
-（2）添加webpack到 package.json：
-$ npm install webpack --save
+（2）添加webpack到 package.json：`$ npm install webpack --save`
 
 ```js
 //此时package.json文件中会出现如下代码：  
