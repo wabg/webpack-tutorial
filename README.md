@@ -1,6 +1,6 @@
 关于Webpack的学习
 
-一、安装
+# 安装
 
 1.Node.js包含一个包管理器npm,webpack能通过npm安装：
 $ npm install webpack -g(全局安装)
@@ -10,12 +10,18 @@ $ npm install webpack -g(全局安装)
 //package.json文件可以手工编写，也可以使用npm init命令自动生成
 （2）添加webpack到 package.json：
 $ npm install webpack --save
-//此时package.json文件中会出现如下代码：  "dependencies": {
+
+```js
+//此时package.json文件中会出现如下代码：  
+"dependencies": {
     "webpack": "^1.14.0"
-  }
+}
+  
+```
+
 注：每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。关于package.json详见http://javascript.ruanyifeng.com/nodejs/packagejson.html
 
-二、运行
+# 运行
 
 1、添加一个配置文件webpack.config.js；一个入口js文件main.js；一个静态页面 index.html
 
