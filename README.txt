@@ -50,3 +50,13 @@ plugins: [
       url: 'http://localhost:8080'
     })
 ]
+8、jQuery/jslite加载
+jQuery是一个快速、简洁的JavaScript框架,封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML
+
+安装依赖$ npm install jquery --save
+
+相应的main.js写成
+
+var $ = require('jslite');
+$('h1').text('Hello World');//相当于<h1>hello world<h2>
+见demo13
