@@ -47,6 +47,7 @@ npm install url-loader file-loader --save
 6、HTML Webpack插件 html-webpack-plugin 能创建index.html 文件。见demo07
 
 7、open-browser-webpack-plugin可以自动打开http://localhost:8080/
+
 ```js
 plugins: [
     new HtmlwebpackPlugin({
@@ -56,13 +57,18 @@ plugins: [
       url: 'http://localhost:8080'
     })
 ]
+```
+
 8、jQuery/jslite加载
+
 jQuery是一个快速、简洁的JavaScript框架,封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML
 
 安装依赖$ npm install jquery --save
 
 相应的main.js写成
 
+```js
 var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
-见demo13
+// 见demo13
+```
