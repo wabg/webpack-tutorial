@@ -114,7 +114,59 @@ npm install url-loader file-loader --save
 
 4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见demo05
 
-5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js  见demo06
+5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见demo06
+
+main.js
+
+```js
+var longVariableName = 'Hello';
+longVariableName += ' World';
+document.write('<h1>' + longVariableName + '</h1>');
+```
+
+index.html
+
+```html
+<html>
+<body>
+  <script src="bundle.js"></script>
+</body>
+</html>
+```
+
+webpack.config.js
+
+```js
+var webpack = require('webpack');
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+module.exports = {
+  entry: './main.js',
+  output: {
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new uglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
+};
+```
+
+运行之后这三个js文件将被压缩成一个文件
+
+```html
+<html>
+<head></head>
+<body>
+    <script src="bundle.js"></script>
+    <h1>Hello World</h1>
+</body>
+</html>
+//在运行界面右键检查可以查看
+//更多内容参见http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/
+```
 
 6、HTML Webpack插件 html-webpack-plugin 能创建index.html 文件。见demo07
 
