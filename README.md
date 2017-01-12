@@ -19,6 +19,7 @@ $ npm init
 //此时package.json文件中会出现如下代码：  
 "dependencies": {
     "webpack": "^1.14.0"
+//dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。
 }
   
 ```
@@ -66,6 +67,8 @@ $ webpack-dev-server
 
 # 使用
 
+## Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换 //详见 http://webpackdoc.com/loader.html
+
 1、Babel加载 加载预处理插件，可将 JSX/ES6 转换成 js 文件。
 安装依赖  
 
@@ -73,7 +76,6 @@ $ webpack-dev-server
 npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom --save
 //见demo02
 ```
-
 
 
 2、css加载 Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子demo03依赖CSS-loader 和 style-loader。 安装依赖
