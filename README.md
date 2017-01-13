@@ -2,7 +2,7 @@
 
 ## 前言
 
-  NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块$ npm install <Module Name>
+> NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块$ npm install <Module Name>
 
 Webpack 是一个模块打包器，其作用有：
 
@@ -72,7 +72,7 @@ $ npm init
     "moment": "^2.17.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
-    }
+}
 ```
     
 ## 运行
@@ -95,7 +95,7 @@ $ webpack-dev-server
 
 ## 使用
 
-#### Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。详见 http://webpackdoc.com/loader.html
+#### Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用   loader 进行转换。详见 http://webpackdoc.com/loader.html
 
 1、Babel加载 加载预处理插件，可将 JSX/ES6 转换成 js 文件。
 安装依赖  
@@ -239,7 +239,7 @@ module.exports = {
 };
 ```
 
-9、用bundle-loader分割代码
+9、用bundle-loader分割代码 见demo11
 
 安装依赖$ npm install --save bundle-loader
 
@@ -257,7 +257,73 @@ load(function(file) {
 
 运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js 页面 index.html 引用入口文件 bundle.js 。
 
-8、jQuery/jslite加载
+10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。此方法的好处是在运行多个文件时，它们的公共部分只运行一次。见demo12
+
+```js
+// main1.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+  <h1>Hello World</h1>,
+  document.getElementById('a')
+);
+
+// main2.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+  <h2>Hello Webpack</h2>,
+  document.getElementById('b')
+);
+```
+
+index.html
+
+```html
+<html>
+  <body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <script src="init.js"></script>
+    <script src="bundle1.js"></script>
+    <script src="bundle2.js"></script>
+  </body>
+</html>
+```
+
+webpack.config.js
+
+```js
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+module.exports = {
+    entry: {
+      bundle1: './main1.jsx',
+      bundle2: './main2.jsx'
+    },
+    output: {
+      filename: '[name].js'
+    },
+    module: {
+      loaders:[
+        {
+          test: /\.js[x]?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015', 'react']
+          }
+        },
+      ]
+    },
+    plugins: [
+      new CommonsChunkPlugin('init.js') //将公共部分放在init.js这个文件中
+    ]
+}
+```
+
+11、jQuery/jslite加载
 
 jQuery是一个快速、简洁的JavaScript框架,封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML。
 
