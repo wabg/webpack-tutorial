@@ -81,8 +81,15 @@ $ npm init
 2、运行命令
 
 ```bash
+$ webpack
+```
+
+会生成 bundle.js
+
+
+```bash
 $ webpack-dev-server 
-//这个可以使用 http://localhost:8080 来预览
+//运行此命令，顺利启动服务器后，在浏览器中输入http://localhost:8080/index.html就可以看到页面
 ```
 
 ## 使用
