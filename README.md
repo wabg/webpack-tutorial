@@ -257,7 +257,9 @@ load(function(file) {
 
 运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js 页面 index.html 引用入口文件 bundle.js 。
 
-10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。此方法的好处是在运行多个文件时，它们的公共部分只运行一次。见demo12
+10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见demo12
+
+此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
 ```jsx
 // main1.jsx
@@ -434,6 +436,7 @@ ReactDOM.render(
 14、模块热替换（Hot Module Replacemen）
 
 作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
+
 现在有两种方法让webpack服务端模块热更换。
 
 1、使用webpack命令的两个子命令
@@ -448,9 +451,10 @@ $ webpack-dev-server --hot --inline
 2、修改webpack.config.js
 
 将new webpack.HotModuleReplacementPlugin()添加到plugins中。
+
 将'webpack/hot/dev-server' 和 'webpack-dev-server/client?http://localhost:8080'添加到 entry
-即
-webpack.config.js
+
+即webpack.config.js
 
 ```js
 var webpack = require('webpack');
@@ -518,5 +522,5 @@ index.html
 $ webpack-dev-server
 ```
 
-不要关闭服务器,将'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化
+不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化
 
