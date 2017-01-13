@@ -524,6 +524,7 @@ $ webpack-dev-server
 
 不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](http://git.showgold.cn/yaojuan/webpack/tree/master/demo17)
 
+
 15、React Router 配置
  * Router 与 Route 一样都是 react 组件 ，它的 history 对象是整个路由系统的核心，它暴漏了很多属性和方法在路由系统中使用；
  * Redirect 是一个重定向组件，有 from 和 to 两个属性；
