@@ -90,7 +90,7 @@ $ webpack
 
 ```bash
 $ webpack-dev-server 
-//运行此命令，顺利启动服务器后，在浏览器中输入http://localhost:8080/index.html就可以看到页面
+//访问http://localhost:8080/index.html，你可以在浏览器中看到"hello world"
 ```
 
 ## 使用
@@ -430,3 +430,93 @@ ReactDOM.render(
   document.getElementById('title')
 );
 ```
+
+14、模块热替换（Hot Module Replacemen）
+
+作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
+现在有两种方法让webpack服务端模块热更换。
+
+1、使用webpack命令的两个子命令
+
+```bash
+$ webpack-dev-server --hot --inline
+//--hot: 加HotModuleReplacementPlugin切换服务器热加载模式。
+--inline: 嵌入运行的webpack-dev-server中。
+--hot --inline: 添加一个指向 webpack/hot/dev-server.
+```
+
+2、修改webpack.config.js
+
+将new webpack.HotModuleReplacementPlugin()添加到plugins中。
+将'webpack/hot/dev-server' 和 'webpack-dev-server/client?http://localhost:8080'添加到 entry
+即
+webpack.config.js
+
+```js
+var webpack = require('webpack');
+var path = require('path');
+module.exports = {
+    entry: [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8080',
+        './index.js'
+    ],
+    output: {
+        filename: 'bundle.js',
+        publicPath: '/static/'
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
+    module: {
+      loaders: [{
+        test: /\.jsx?$/,
+        loaders: ['babel-loader?presets[]=es2015&presets[]=react'],
+        include: path.join(__dirname, '.')
+      }]
+    }
+};
+```
+
+App.js
+
+```js
+import React, { Component } from 'react';
+
+export default class App extends Component {
+  render() {
+    return (
+      <h1>Hello World</h1>
+    );
+  }
+}
+```
+
+index.js
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+index.html
+
+```html
+<html>
+  <body>
+    <div id='root'></div>
+    <script src="/static/bundle.js"></script>
+  </body>
+</html>
+```
+
+运行命令
+
+```bash
+$ webpack-dev-server
+```
+
+不要关闭服务器,将'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化
+
