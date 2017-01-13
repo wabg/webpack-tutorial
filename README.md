@@ -522,5 +522,5 @@ index.html
 $ webpack-dev-server
 ```
 
-不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化
+不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](http://git.showgold.cn/yaojuan/webpack/tree/master/demo17)
 
