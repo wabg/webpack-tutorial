@@ -340,3 +340,93 @@ var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
 // 见demo13
 ```
+12、每个模块中使用JSLite或者jQuery
+
+demo14使用 ProvidePlugin 方法。这个方法可以把一个模块作为一个变量，只有当你使用变量时才会请求相应的模块。此处可见官方解释//http://webpack.github.io/docs/shimming-modules.html
+
+index.html
+
+```html
+<html>
+  <body>
+    <h1></h1>
+    <script src="bundle.js"></script>
+  </body>
+</html>
+```
+
+main.js
+
+```js
+$('h1').text('Hello World');
+```
+
+webpack.config.js
+
+```js
+var webpack = require('webpack');
+module.exports = {
+    entry: {
+      app: './main.js'
+    },
+    output: {
+      filename: 'bundle.js'
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jslite",
+        JSLite: "jslite",
+        "window.JSLite": "jslite"
+      })
+    ]
+};
+```
+
+13、暴露全局变量
+
+demo15可以在 webpack.config.js 中使用 externals。官方文档
+
+例如我们有一个data.js
+
+```js
+var data = 'Hello World';
+```
+我们将data作为一个全局变量。
+webpack.config.js
+
+```js
+module.exports = {
+    entry: './main.jsx',
+    output: {
+      filename: 'bundle.js'
+    },
+    module: {
+        loaders:[
+          {
+            test: /\.js[x]?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015', 'react']
+            }
+          },
+        ]
+    },
+    externals: {
+      // require('data') 应用当做一个全局变量引用进来
+      'data': 'data'
+    }
+};
+```
+现在你可以在你的main.jsx文件中可以把 data 全局变量当一个包引用进来，实际上它是一个全局变量。
+
+```jsx
+var data = require('data');
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+  <h1>{data}</h1>,
+  document.getElementById('title')
+);
+```
