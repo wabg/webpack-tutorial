@@ -1,6 +1,7 @@
 # 关于Webpack的学习
 
 ## 前言
+
   NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块$ npm install <Module Name>
 
 Webpack 是一个模块打包器，其作用有：
