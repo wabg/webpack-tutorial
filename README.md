@@ -524,3 +524,10 @@ $ webpack-dev-server
 
 不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](http://git.showgold.cn/yaojuan/webpack/tree/master/demo17)
 
+15、React Router 配置
+ * Router 与 Route 一样都是 react 组件 ，它的 history 对象是整个路由系统的核心，它暴漏了很多属性和方法在路由系统中使用；
+ * Redirect 是一个重定向组件，有 from 和 to 两个属性；
+ * browserHistory ：是由 React Router 创建浏览器应用推荐的 history。它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。
+ * hashHistory ：这是一个你会获取到的默认 history ，如果你不指定某个 history 。它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由，支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。
+ * createMemoryHistory ：不会在地址栏被操作或读取。
+
