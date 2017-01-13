@@ -97,16 +97,16 @@ $ webpack-dev-server
 
 #### Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用   loader 进行转换。详见 http://webpackdoc.com/loader.html
 
-1、Babel加载 加载预处理插件，可将 JSX/ES6 转换成 js 文件。
+1、Babel加载 加载预处理插件，可将 JSX/ES6 转换成 js 文件。/见[demo02](http://git.showgold.cn/yaojuan/webpack/tree/master/demo02)
 安装依赖  
 
 ```js
 npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom --save
-//见demo02
+
 ```
 
 
-2、css加载 Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子demo03依赖CSS-loader 和 style-loader。 安装依赖
+2、css加载 Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](http://git.showgold.cn/yaojuan/webpack/tree/master/demo03)依赖CSS-loader 和 style-loader。 安装依赖
 
 ```js
  npm install css-loader style-loader --save
@@ -117,12 +117,12 @@ npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom 
 
 ```js
 npm install url-loader file-loader --save
-//见demo04
+//见[demo04](http://git.showgold.cn/yaojuan/webpack/tree/master/demo04)
 ```
 
-4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见demo05
+4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](http://git.showgold.cn/yaojuan/webpack/tree/master/demo05)
 
-5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见demo06
+5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见[demo06](http://git.showgold.cn/yaojuan/webpack/tree/master/demo06)
 
 main.js
 
@@ -176,7 +176,7 @@ module.exports = {
 //更多内容参见http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/
 ```
 
-6、HTML Webpack插件 html-webpack-plugin 能创建index.html 文件。见demo07
+6、HTML Webpack插件 html-webpack-plugin 能创建index.html 文件。见[demo07](http://git.showgold.cn/yaojuan/webpack/tree/master/demo07)
 
 7、open-browser-webpack-plugin可以自动打开http://localhost:8080/
 
@@ -188,7 +188,7 @@ plugins: [
     new OpenBrowserPlugin({
       url: 'http://localhost:8080'
     })
-]//见demo8
+]//见[demo8](http://git.showgold.cn/yaojuan/webpack/tree/master/demo08)
 ```
 
 8、代码分割
@@ -197,7 +197,7 @@ webpack 可以把你的代码拆分到“chunks”里面去，从而让你的代
 
 这个非常重要，构建大型应用的时候，你需要将你的代码分模块，不然你的js越来越大，加载速度越来越慢，分块也适合项目模块化，多人共同应用开发。
 
-我们在下面的例子demo10 用的是CommonJs 的加载方式 require.ensure 你可以到官网看跟多的模块加载方式 
+我们在下面的例子[demo10](http://git.showgold.cn/yaojuan/webpack/tree/master/demo10) 用的是CommonJs 的加载方式 require.ensure 你可以到官网看跟多的模块加载方式 
 
 main.js
 
@@ -239,7 +239,7 @@ module.exports = {
 };
 ```
 
-9、用bundle-loader分割代码 见demo11
+9、用bundle-loader分割代码 见[demo11](http://git.showgold.cn/yaojuan/webpack/tree/master/demo11)
 
 安装依赖$ npm install --save bundle-loader
 
@@ -257,7 +257,7 @@ load(function(file) {
 
 运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js 页面 index.html 引用入口文件 bundle.js 。
 
-10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见demo12
+10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见[demo12](http://git.showgold.cn/yaojuan/webpack/tree/master/demo12)
 
 此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
@@ -340,9 +340,9 @@ $ npm install jquery --save
 ```js
 var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
-// 见demo13
+// 见[demo13](http://git.showgold.cn/yaojuan/webpack/tree/master/demo13)
 ```
-12、每个模块中使用JSLite或者jQuery demo14
+12、每个模块中使用JSLite或者jQuery [demo14](http://git.showgold.cn/yaojuan/webpack/tree/master/demo14)
 
 使用 ProvidePlugin 方法可以把一个模块作为一个变量，只有当你使用变量时才会请求相应的模块。可见官方解释//http://webpack.github.io/docs/shimming-modules.html
 
@@ -386,7 +386,7 @@ module.exports = {
 
 13、暴露全局变量
 
-demo15可以在 webpack.config.js 中使用 externals。官方文档
+[demo15](http://git.showgold.cn/yaojuan/webpack/tree/master/demo15)可以在 webpack.config.js 中使用 externals。官方文档
 
 例如我们有一个data.js
 
