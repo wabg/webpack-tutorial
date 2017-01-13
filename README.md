@@ -259,7 +259,7 @@ load(function(file) {
 
 10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。此方法的好处是在运行多个文件时，它们的公共部分只运行一次。见demo12
 
-```js
+```jsx
 // main1.jsx
 var React = require('react');
 var ReactDOM = require('react-dom');
