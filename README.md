@@ -4,17 +4,17 @@
 
 > NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块$ npm install <Module Name>
 
-Webpack 是一个模块打包器，其作用有：
+> Webpack 是一个模块打包器，其作用有：
 
-首先Webpack 本身能处理原生的 JavaScript 模块；
+> 首先Webpack 本身能处理原生的 JavaScript 模块；
 
-可以使用loader转换器将各种类型的资源转换成 JavaScript 模块，从而任何资源都可以成为 Webpack 可以处理的模块；
+> 可以使用loader转换器将各种类型的资源转换成 JavaScript 模块，从而任何资源都可以成为 Webpack 可以处理的模块；
 
-能够进行代码分割；
+> 能够进行代码分割；
 
-Webpack 有一个功能丰富的插件系统，大多数内容功能都是基于这个插件系统运行的；
+> Webpack 有一个功能丰富的插件系统，大多数内容功能都是基于这个插件系统运行的；
 
-Webpack 还有一个智能解析器，几乎可以处理任何第三方库，无论它们的模块形式是 CommonJS、 AMD 还是普通的 JS 文件。甚至在加载依赖的时候，允许使用动态表达式 require("./templates/" + name + ".jade")。
+> Webpack 还有一个智能解析器，几乎可以处理任何第三方库，无论它们的模块形式是 CommonJS、 AMD 还是普通的 JS 文件。甚至在加载依赖的时候，允许使用动态表达式 require("./templates/" + name + ".jade")。
 
 ## 安装
 
@@ -342,9 +342,9 @@ var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
 // 见demo13
 ```
-12、每个模块中使用JSLite或者jQuery
+12、每个模块中使用JSLite或者jQuery demo14
 
-demo14使用 ProvidePlugin 方法。这个方法可以把一个模块作为一个变量，只有当你使用变量时才会请求相应的模块。此处可见官方解释//http://webpack.github.io/docs/shimming-modules.html
+使用 ProvidePlugin 方法可以把一个模块作为一个变量，只有当你使用变量时才会请求相应的模块。可见官方解释//http://webpack.github.io/docs/shimming-modules.html
 
 index.html
 
