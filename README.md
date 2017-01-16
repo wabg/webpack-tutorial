@@ -1,8 +1,68 @@
 # 关于Webpack的学习
 
+本教材适用于超级新手查看和参阅。主要用于学习Webpack构建前端项目，中间穿插着React.js的使用。
+
 ## 前言
 
-> NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块$ npm install <Module Name>
+下面介绍在项目使用过程中，使用的几个工具和名称的介绍。
+
+### Node
+
+一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。
+
+**可以做干什么？**
+
+1. 
+2. 
+3. 
+
+**优缺点：**
+
+1. 
+2. 
+3. 
+
+### NPM
+
+NPM是一个NodeJS包管理和分发工具。
+
+**npm是做什么的？**
+
+1. 
+2. 
+3. 
+
+**npm替代工具：**
+
+1. cnpm
+2. yarn
+
+
+### Webpack
+
+是一个模块打包器。我们将他用于前端项目流程构建。
+
+**Webpack可以做哪些事儿？**
+
+1. 代码压缩
+2. 
+3. 
+
+**有哪些同类工具**
+
+1. `grunt`
+2. `gulp`
+3. `fis`
+
+## 安装
+
+
+
+
+
+
+
+> NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块`$ npm install <Module Name>`
 
 > Webpack 是一个模块打包器，其作用有：
 
@@ -435,8 +495,6 @@ ReactDOM.render(
 
 14、模块热替换（Hot Module Replacemen）
 
-作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
-
 现在有两种方法让webpack服务端模块热更换。
 
 1、使用webpack命令的两个子命令
@@ -448,13 +506,14 @@ $ webpack-dev-server --hot --inline
 --hot --inline: 添加一个指向 webpack/hot/dev-server.
 ```
 
-2、修改webpack.config.js
+2、修改webpack配置文件，我这里是webpack.config.js
 
-将new webpack.HotModuleReplacementPlugin()添加到plugins中。
+将`new webpack.HotModuleReplacementPlugin()`添加到plugins中。
+这个工具的作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
 
 将'webpack/hot/dev-server' 和 'webpack-dev-server/client?http://localhost:8080'添加到 entry
 
-即webpack.config.js
+这个是我的完整的webpack配置文件`webpack.config.js`
 
 ```js
 var webpack = require('webpack');
