@@ -207,7 +207,9 @@ Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文�
  npm install css-loader style-loader --save
 ```
 
-4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](./demo05)
+#### css组件加载
+
+css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](./demo05)
 
 
 #### 图片加载
