@@ -12,6 +12,7 @@
   - [Webpack](#webpack)
 - [安装](#安装)
   - [初始化配置](#初始化配置)
+- [参考资料](#参考资料)
 
 ## 前言
 
@@ -610,3 +611,8 @@ $ webpack-dev-server
  * hashHistory ：这是一个你会获取到的默认 history ，如果你不指定某个 history 。它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由，支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。
  * createMemoryHistory ：不会在地址栏被操作或读取。
 
+
+
+## 参考资料
+
+- [Node.js 概述](http://javascript.ruanyifeng.com/nodejs/basic.html)
