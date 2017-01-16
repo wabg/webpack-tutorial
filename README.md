@@ -70,6 +70,7 @@ Webpack是一个模块打包器，我们将他用于前端项目流程构建。
 ```bash
 $ npm init
 ```
+
 注：每个项目的根目录下面，一般都有一个项目配置文件package.json，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。
 关于package.json详见http://javascript.ruanyifeng.com/nodejs/packagejson.html
 
@@ -131,7 +132,7 @@ $ npm install webpack --save
 }
 ```
     
-## 运行
+## 实例运行
 
 1、添加一个配置文件webpack.config.js；一个入口js文件main.js；一个静态页面 index.html 见[demo01](http://git.showgold.cn/yaojuan/webpack/tree/master/demo01)
 
@@ -149,34 +150,42 @@ $ webpack-dev-server
 //访问http://localhost:8080/index.html，你可以在浏览器中看到"hello world"
 ```
 
-## 使用
+## 使用功能介绍
 
-#### Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用   loader 进行转换。详见 http://webpackdoc.com/loader.html
 
-1、Babel加载 加载预处理插件，可将 JSX/ES6 转换成 js 文件。/见[demo02](http://git.showgold.cn/yaojuan/webpack/tree/master/demo02)
+### 资源加载
+
+Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用   loader 进行转换。详见 http://webpackdoc.com/loader.html
+
+#### Babel加载 
+
+加载预处理插件，可将 JSX/ES6 转换成 js 文件。/见[demo02](./demo02)
 安装依赖  
 
 ```js
 npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom --save
-
 ```
 
+#### css加载 
 
-2、css加载 Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](http://git.showgold.cn/yaojuan/webpack/tree/master/demo03)依赖CSS-loader 和 style-loader。 安装依赖
+Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](http://git.showgold.cn/yaojuan/webpack/tree/master/demo03)依赖CSS-loader 和 style-loader。 安装依赖
 
 ```js
  npm install css-loader style-loader --save
 ```
 
+4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](http://git.showgold.cn/yaojuan/webpack/tree/master/demo05)
 
-3、图片加载需要依赖 file-loader 和 url-loader ，安装依赖
+
+#### 图片加载
+
+需要依赖 file-loader 和 url-loader ，安装依赖
 
 ```js
 npm install url-loader file-loader --save
 //见[demo04](http://git.showgold.cn/yaojuan/webpack/tree/master/demo04)
 ```
 
-4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](http://git.showgold.cn/yaojuan/webpack/tree/master/demo05)
 
 5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见[demo06](http://git.showgold.cn/yaojuan/webpack/tree/master/demo06)
 
