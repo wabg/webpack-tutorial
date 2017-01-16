@@ -1,113 +1,142 @@
 # 关于Webpack的学习
-
 本教材适用于超级新手查看和参阅。主要用于学习Webpack构建前端项目，中间穿插着React.js的使用。
 
 ## 前言
 
-下面介绍在项目使用过程中，使用的几个工具和名称的介绍。
+下面介绍webpack及与webpack相关的几个概念
 
-### Node
+### Node.js
 
-一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。
+Node.js 是一个在浏览器外部创建互联网应用程序的框架，它基于 Google 开发的 V8 JavaScript 引擎，轻量，高效，事件驱动，非阻塞I/O，特别适合运行于跨分布式设备的实时数据处理程序。
 
-**可以做干什么？**
+**Node.js的作用**
 
-1. 
-2. 
-3. 
+1、JSON APIs——构建一个Rest/JSON API服务，Node.js可以充分发挥其非阻塞IO模型以及JavaScript对JSON的功能支持(如JSON.stringfy函数)。
 
-**优缺点：**
+2、应用于单页面、多Ajax请求应用——如Gmail，前端有大量的异步请求，需要服务后端有极高的响应速度
 
-1. 
-2. 
-3. 
+3、基于Node.js开发Unix命令行工具——Node.js可以大量生产子进程，并以流的方式输出，这使得它非常适合做Unix命令行工具
+
+4、流式数据——传统的Web应用，通常会将HTTP请求和响应看成是原子事件。而Node.js会充分利用流式数据这个特点，构建非常酷的应用。如实时文件上传系统transloadit
+
+5、适用于准实时应用系统——如聊天系统、微博系统，但Javascript是有垃圾回收机制的，这就意味着，系统的响应时间是不平滑的(GC垃圾回收会导致系统这一时刻停止工作)。
+
+
+**优劣**
+
+1、采用事件驱动、异步编程，为网络服务而设计。
+
+2、Node.js非阻塞模式的IO处理给Node.js带来在相对低系统资源耗用下的高性能与出众的负载能力。
+
+3、Node.js轻量高效，可以认为是数据密集型分布式部署环境下的实时应用系统的完美解决方案。
+
+4、Node非常适合如下情况：在响应客户端之前，您预计可能有很高的流量，但所需的服务器端逻辑和处理不一定很多。
+
+Node.js缺点：
+
+1、可靠性低
+
+2、单进程，单线程，只支持单核CPU，不能充分的利用多核CPU服务器。一旦这个进程崩掉，那么整个web服务就崩掉了。 
+
 
 ### NPM
 
-NPM是一个NodeJS包管理和分发工具。
+npm(node package manager) nodejs的包管理器，用于node插件管理（安装、卸载、更新、管理依赖等）。
 
 **npm是做什么的？**
 
-1. 
-2. 
-3. 
+1、npm使JavaScript开发人员可以轻松地共享和重用代码，并且可以轻松更新您共享的代码。
 
-**npm替代工具：**
+2、管理项目中的依赖项
+
+3、与他人分享和接收反馈
+
+**npm替代工具**
 
 1. cnpm
+
+淘宝网提供的国内NPM镜像，因为npm安装插件是从外国服务器下载，受网络影响大，可能出现异常。
+
 2. yarn
+
+yarn是Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具，是为了弥补 npm 的安装包（packages）的速度不够快、拉取的 packages 可能版本不同、npm 允许在安装 packages 时执行代码可能产生安全隐患等一些缺陷而出现的
+
 
 
 ### Webpack
 
-是一个模块打包器。我们将他用于前端项目流程构建。
+Webpack是一个模块打包器，我们将他用于前端项目流程构建。
+
 
 **Webpack可以做哪些事儿？**
 
-1. 代码压缩
-2. 
-3. 
 
-**有哪些同类工具**
+1.、使用loader转换器将各种类型的资源转换成 JavaScript 模块来进行处理：???
 
-1. `grunt`
-2. `gulp`
-3. `fis`
+Babel加载，可将 JSX/ES6 转换成 js 文件；
 
-## 安装
+css加载，允许你在js文件中引入CSS文件；
 
+图片加载，允许引入图片；
 
+2.、代码压缩
 
+3.、代码分割
 
 
+**Webpack同类工具**
+
+1、 `grunt`
+
+Grunt是基于Node.js的项目构建工具。它可以自动运行你所设定的任务。Grunt拥有数量庞大的插件,几乎任何你所要做的事情都可以用Grunt实现。
+
+2、 `gulp`
+
+Gulp是基于Node.js实现 Web 前端自动化开发的工具，能够自动化处理你在做项目以后需要完成的一系列的重复工作。比如，压缩代码，合并代码，检查语法是否正确，优化图片等等你可以需要手动重复处理的事情，利用它能够极大的提高开发效率。
 
 
-> NPM是一个NodeJS包管理和分发工具，使用可以很快的找到特定服务要使用的包，进行下载、安装以及管理已经安装的包。比如使用 npm 命令安装模块`$ npm install <Module Name>`
-
-> Webpack 是一个模块打包器，其作用有：
-
-> 首先Webpack 本身能处理原生的 JavaScript 模块；
-
-> 可以使用loader转换器将各种类型的资源转换成 JavaScript 模块，从而任何资源都可以成为 Webpack 可以处理的模块；
-
-> 能够进行代码分割；
-
-> Webpack 有一个功能丰富的插件系统，大多数内容功能都是基于这个插件系统运行的；
-
-> Webpack 还有一个智能解析器，几乎可以处理任何第三方库，无论它们的模块形式是 CommonJS、 AMD 还是普通的 JS 文件。甚至在加载依赖的时候，允许使用动态表达式 require("./templates/" + name + ".jade")。
 
 ## 安装
 
-1.Node.js包含一个包管理器npm,webpack能通过npm安装：
-
-```bash
-$ npm install webpack -g
-//全局安装
-```
-
-2.本地安装  
-（1）为npm添加一个package.json配置文件：
+在安装之前需要初始化一个`package.json`
 
 ```bash
 $ npm init
-# package.json文件可以手工编写，也可以使用npm init命令自动生成
+```
+注：每个项目的根目录下面，一般都有一个项目配置文件package.json，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。
+关于package.json详见http://javascript.ruanyifeng.com/nodejs/packagejson.html
+
+
+webpack能通过npm安装，还可以使用`cnpm`、`yarn`等工具安装，下面介绍npm安装
+
+1.全局安装
+
+```bash
+$ npm install webpack -g
+```
+全局安装将会安装在C:\Users\Administrator\AppData\Roaming\npm？？？，并且写入系统环境变量
+
+2.本地安装
+
+```bash
+$ npm install webpack --save
+//--save：将保存配置信息至package.json（package.json是nodejs项目配置文件）
+-dev：保存至package.json的devDependencies节点，不指定-dev将保存至dependencies节点
 ```
 
-（2）添加webpack到 package.json：`$ npm install webpack --save`
+此时package.json文件中会出现如下代码：
 
 ```js
-//此时package.json文件中会出现如下代码：  
+  
 "dependencies": {
     "webpack": "^1.14.0"
-//dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。
 }
   
 ```
+本地安装将会安装在当前定位目录node_modules文件夹下，通过require()调用
 
-注：1.每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境。
-关于package.json详见http://javascript.ruanyifeng.com/nodejs/packagejson.html
 
-2.如果想要安装新版本，可在package.json中进行如下配置：
+如果想要安装新版本，可在package.json中进行如下配置：
     
 ```js
   "dependencies": {
