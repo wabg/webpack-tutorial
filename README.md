@@ -11,6 +11,25 @@
   - [Webpack](#webpack)
 - [安装](#安装)
   - [初始化配置](#初始化配置)
+  - [安装webpack](#安装webpack)
+- [实例运行](#实例运行)
+- [使用功能介绍](#使用功能介绍)
+  - [资源加载](#资源加载)
+    - [babel加载](#babel加载)
+    - [css加载](#css加载)
+    - [css组件加载](#css组件加载)
+    - [图片加载](#图片加载)
+  - [UglifyJs插件](#UglifyJs插件)
+  - [HTML Webpack插件](#HTML Webpack插件)
+  - [命令启动打开入口路径](#命令启动打开入口路径)
+  - [代码分割](#代码分割)
+  - [用bundle-loader分割代码](#用bundle-loader分割代码)
+  - [普通模块React应用](#普通模块React应用)
+  - [jQuery/jslite加载](#jQuery/jslite加载)
+  - [每个模块中使用JSLite或者jQuery](#每个模块中使用JSLite或者jQuery)
+  - [暴露全局变量](#暴露全局变量)
+  - [模块热替换](#模块热替换)
+  - [React Router 配置](#React Router 配置)
 - [参考资料](#参考资料)
 
 ## 前言
@@ -182,13 +201,13 @@ npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom 
 
 #### css加载 
 
-Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](http://git.showgold.cn/yaojuan/webpack/tree/master/demo03)依赖CSS-loader 和 style-loader。 安装依赖
+Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](./demo03)依赖CSS-loader 和 style-loader。 安装依赖
 
 ```js
  npm install css-loader style-loader --save
 ```
 
-4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](http://git.showgold.cn/yaojuan/webpack/tree/master/demo05)
+4、css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](./demo05)
 
 
 #### 图片加载
@@ -197,11 +216,13 @@ Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文�
 
 ```js
 npm install url-loader file-loader --save
-//见[demo04](http://git.showgold.cn/yaojuan/webpack/tree/master/demo04)
+//见[demo04](./demo04)
 ```
 
 
-5、UglifyJs插件 Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见[demo06](http://git.showgold.cn/yaojuan/webpack/tree/master/demo06)
+### UglifyJs插件
+
+Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见[demo06](./demo06)
 
 main.js
 
@@ -255,9 +276,13 @@ module.exports = {
 //更多内容参见http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/
 ```
 
-6、HTML Webpack插件 html-webpack-plugin 能创建index.html 文件。见[demo07](http://git.showgold.cn/yaojuan/webpack/tree/master/demo07)
+### HTML Webpack插件 
 
-7、open-browser-webpack-plugin可以自动打开http://localhost:8080/
+html-webpack-plugin 能创建index.html 文件。见[demo07](./demo07)
+
+### 命令启动打开入口路径
+
+open-browser-webpack-plugin可以自动打开http://localhost:8080/
 
 ```js
 plugins: [
@@ -267,16 +292,16 @@ plugins: [
     new OpenBrowserPlugin({
       url: 'http://localhost:8080'
     })
-]//见[demo8](http://git.showgold.cn/yaojuan/webpack/tree/master/demo08)
+]//见[demo8](./demo08)
 ```
 
-8、代码分割
+### 代码分割
 
 webpack 可以把你的代码拆分到“chunks”里面去，从而让你的代码可以按需加载，这样就可以保证初始文件加载变小，在应用需要的时候在加载需要的模块。
 
 这个非常重要，构建大型应用的时候，你需要将你的代码分模块，不然你的js越来越大，加载速度越来越慢，分块也适合项目模块化，多人共同应用开发。
 
-我们在下面的例子[demo10](http://git.showgold.cn/yaojuan/webpack/tree/master/demo10) 用的是CommonJs 的加载方式 require.ensure 你可以到官网看跟多的模块加载方式 
+我们在下面的例子[demo10](./demo10) 用的是CommonJs 的加载方式 require.ensure 你可以到官网看跟多的模块加载方式 
 
 main.js
 
@@ -318,7 +343,7 @@ module.exports = {
 };
 ```
 
-9、用bundle-loader分割代码 见[demo11](http://git.showgold.cn/yaojuan/webpack/tree/master/demo11)
+### 用bundle-loader分割代码 见[demo11](./demo11)
 
 安装依赖$ npm install --save bundle-loader
 
@@ -336,7 +361,9 @@ load(function(file) {
 
 运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js 页面 index.html 引用入口文件 bundle.js 。
 
-10、当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见[demo12](http://git.showgold.cn/yaojuan/webpack/tree/master/demo12)
+### 普通模块React应用
+
+当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见[demo12](./demo12)
 
 此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
@@ -404,7 +431,7 @@ module.exports = {
 }
 ```
 
-11、jQuery/jslite加载
+### jQuery/jslite加载
 
 jQuery是一个快速、简洁的JavaScript框架,封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML。
 
@@ -419,9 +446,9 @@ $ npm install jquery --save
 ```js
 var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
-// 见[demo13](http://git.showgold.cn/yaojuan/webpack/tree/master/demo13)
+// 见[demo13](./demo13)
 ```
-12、每个模块中使用JSLite或者jQuery [demo14](http://git.showgold.cn/yaojuan/webpack/tree/master/demo14)
+### 每个模块中使用JSLite或者jQuery [demo14](./demo14)
 
 使用 ProvidePlugin 方法可以把一个模块作为一个变量，只有当你使用变量时才会请求相应的模块。可见官方解释//http://webpack.github.io/docs/shimming-modules.html
 
@@ -463,9 +490,9 @@ module.exports = {
 };
 ```
 
-13、暴露全局变量
+### 暴露全局变量
 
-[demo15](http://git.showgold.cn/yaojuan/webpack/tree/master/demo15)可以在 webpack.config.js 中使用 externals。官方文档
+[demo15](./demo15)可以在 webpack.config.js 中使用 externals。官方文档
 
 例如我们有一个data.js
 
@@ -512,7 +539,7 @@ ReactDOM.render(
 );
 ```
 
-14、模块热替换（Hot Module Replacemen）
+### 模块热替换（Hot Module Replacemen）
 
 现在有两种方法让webpack服务端模块热更换。
 
@@ -600,10 +627,10 @@ index.html
 $ webpack-dev-server
 ```
 
-不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](http://git.showgold.cn/yaojuan/webpack/tree/master/demo17)
+不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](./demo17)
 
 
-15、React Router 配置
+### React Router 配置
  * Router 与 Route 一样都是 react 组件 ，它的 history 对象是整个路由系统的核心，它暴漏了很多属性和方法在路由系统中使用；
  * Redirect 是一个重定向组件，有 from 和 to 两个属性；
  * browserHistory ：是由 React Router 创建浏览器应用推荐的 history。它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。
