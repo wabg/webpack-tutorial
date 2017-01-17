@@ -347,9 +347,9 @@ body {
  npm install css-loader style-loader --save
 ```
 
-#### css组件加载
+#### css组件加载 见[demo05](./demo05)
 
-css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](./demo05)
+css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 
 
 index.html
 
@@ -379,21 +379,58 @@ ReactDOM.render(
 );
 ```
 
+#### 图片加载   见[demo04](./demo04)
 
+需要依赖 file-loader 和 url-loader
 
-#### 图片加载
-
-需要依赖 file-loader 和 url-loader ，安装依赖
+index.html
 
 ```js
+<!DOCTYPE html>
+    <body>
+        <script type="text/javascript" src="bundle.js"></script>
+    </body>
+</html>
+```
+
+main.js
+
+```js
+var img1 = document.createElement("img");
+img1.src = require("./small.png");
+document.body.appendChild(img1);
+
+var img2 = document.createElement("img");
+img2.src = require("./big.png");
+document.body.appendChild(img2);
+```
+
+webpack.config.js
+
+```js
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename:'bundle.js'
+    },
+    module:{
+        loaders:[
+            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+        ]
+    }
+}
+```
+
+安装依赖
+
+```bash
 npm install url-loader file-loader --save
-//见[demo04](./demo04)
 ```
 
 
-### UglifyJs插件
+### UglifyJs插件 见[demo06](./demo06)
 
-Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 见[demo06](./demo06)
+Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 
 
 main.js
 
@@ -447,13 +484,37 @@ module.exports = {
 //更多内容参见http://rapheal.sinaapp.com/2014/05/22/uglifyjs-squeeze/
 ```
 
-### HTML Webpack插件 
+### HTML Webpack插件  见[demo07](./demo07)
 
-html-webpack-plugin 能创建index.html 文件。见[demo07](./demo07)
+html-webpack-plugin 能创建index.html 文件
 
-### 命令启动打开入口路径
+main.js
 
-open-browser-webpack-plugin可以自动打开http://localhost:8080/
+```js
+document.write('<h1>Hello World</h1>');
+```
+webpack.config.js
+
+```js
+var HtmlwebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    },
+    plugins: [
+        new HtmlwebpackPlugin({
+          title: 'Webpack-demos'
+        })
+    ]
+};
+```
+
+### 命令启动打开入口路径    见[demo8](./demo08)
+
+open-browser-webpack-plugin可以自动打开http://localhost:8080/,demo08 稍做更改webpack.config.js中的 module.exports.plugins 添加一个插件。
+
+webpack.config.js
 
 ```js
 plugins: [
@@ -463,8 +524,9 @@ plugins: [
     new OpenBrowserPlugin({
       url: 'http://localhost:8080'
     })
-]//见[demo8](./demo08)
+]
 ```
+
 ### 环境变量的使用 
 
 定义一个环境变量__DEV__，通过环境变量来运行webpack-dev-server 命令。只有在开发环境中使用环境变量，才能使某些代码起作用。
@@ -580,7 +642,30 @@ load(function(file) {
 });
 ```
 
-运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js 页面 index.html 引用入口文件 bundle.js 。
+index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+	<script src="bundle.js"></script>
+</body>
+</html>
+```
+webpack.config.js
+
+```js
+module.exports = {
+	entry:'./main.js',
+	output:{
+		filename: 'bundle.js'
+
+	}
+};
+```
+
+运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js ，页面 index.html 引用入口文件 bundle.js 。
+
 
 ### 普通模块React应用
 
