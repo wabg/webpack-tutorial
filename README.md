@@ -221,7 +221,7 @@ Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文
 
 #### Babel加载 
 
-加载预处理插件，可将 JSX/ES6 转换成 js 文件。/见[demo02](./demo02)
+加载预处理插件，可将 JSX/ES6 转换成 js 文件。见[demo02](./demo02)
 
 index.html
 
@@ -290,15 +290,95 @@ npm install babel-loader babel-preset-es2015 babel-preset-react react react-dom 
 
 #### css加载 
 
-Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](./demo03)依赖CSS-loader 和 style-loader。 安装依赖
+Webpack允许你在js文件中引入CSS文件，然后用 CSS-loader 对CSS文件进行预处理，这个例子[demo03](./demo03)依赖CSS-loader 和 style-loader。
+
+index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<script type="text/javascript" src="bundle.js"></script>
+</head>
+<body>
+
+	<h1>hello world</h1>
+</body>
+</html>
+```
+
+main.js
 
 ```js
+require('./app.css');
+```
+
+webpack.config.js
+
+```js
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders:[
+            { test: /\.css$/, loader: 'style-loader!css-loader' },
+        ]
+    }
+};
+```
+app.css
+
+```js
+body {
+   color: #000;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, Palatino, serif;
+}
+```
+
+安装依赖
+
+```bash
  npm install css-loader style-loader --save
 ```
 
 #### css组件加载
 
 css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 见[demo05](./demo05)
+
+index.html
+
+```js<html>
+<body>
+	<h1 class="h1">hello world</h1>
+	<h2 class="h2">hello webpack</h2>
+	<div id="example"></div>
+	<script src="./bundle.js"></script>
+</body>
+</html>
+```
+
+main.jsx
+
+```js
+var React = require('react');
+var ReactDOM = require('react-dom');
+var style = require('./app.css');
+
+ReactDOM.render(
+  <div>
+    <h1 className={style.h1}>Hello World</h1>
+    <h2 className="h2">Hello Webpack</h2>
+  </div>,
+  document.getElementById('example')
+);
+```
+
 
 
 #### 图片加载
