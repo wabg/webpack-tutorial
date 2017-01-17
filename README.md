@@ -222,6 +222,66 @@ Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文
 #### Babel加载 
 
 加载预处理插件，可将 JSX/ES6 转换成 js 文件。/见[demo02](./demo02)
+
+index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>webpack demo02</title>
+</head>
+<body>
+	<div id="wrapper"></div>
+	<script type="text/javascript" src="bundle.js"></script>
+	
+</body>
+</html>
+```
+
+main.js
+
+```jsx
+const React = require('react');
+const ReactDOM = require('react-dom');
+
+ReactDOM.render(
+    <h1>Hello, world!</h1>,
+    document.querySelector('#wrapper')
+);
+```
+
+webpack.config.js
+
+```js
+module.exports = {    
+    entry: './main.jsx',
+    output: {
+        filename: 'bundle.js'
+    },
+    module: {
+        // loaders:[
+        //     {
+        //       test: /\.js[x]?$/,
+        //       exclude: /node_modules/,
+        //       loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        //     },
+        // ]
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }
+        ]
+    }
+};
+```
+
 安装依赖  
 
 ```js
