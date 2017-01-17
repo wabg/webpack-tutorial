@@ -692,11 +692,11 @@ module.exports = {
 运行 webpack 命令之后就生成两个js 文件 bundle.js 和 1.bundle.js ，页面 index.html 引用入口文件 bundle.js 。
 
 
-### 普通模块React应用
+### 普通模块React应用   见[demo12](./demo12)
 
-React是一个用于构建可组合的用户界面的库,现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html) 与 [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
+React是一个用于构建可组合的用户界面的库，是现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html) 与 [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
 
-下面通过commonschunkplugin方法演示React的应用见[demo12](./demo12)
+下面通过commonschunkplugin方法演示React的应用 
 
 当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
@@ -766,7 +766,7 @@ module.exports = {
 }
 ```
 
-### jQuery/jslite加载
+### jQuery/jslite加载  见[demo13](./demo13)
 
 jQuery是一个快速、简洁的JavaScript框架,封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML。
 
@@ -781,7 +781,7 @@ $ npm install jquery --save
 ```js
 var $ = require('jslite');
 $('h1').text('Hello World');//相当于<h1>hello world<h2>
-// 见[demo13](./demo13)
+
 ```
 ### 每个模块中使用JSLite或者jQuery [demo14](./demo14)
 
@@ -827,7 +827,7 @@ module.exports = {
 
 ### 暴露全局变量
 
-[demo15](./demo15)可以在 webpack.config.js 中使用 externals。官方文档
+[demo15](./demo15)可以在 webpack.config.js 中使用 externals。
 
 例如我们有一个data.js
 
@@ -976,5 +976,7 @@ $ webpack-dev-server
 
 ## 参考资料
 
+- [ruanyf/webpack-demos ](https://github.com/ruanyf/webpack-demos)
+- [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
 - [Node.js 概述](http://javascript.ruanyifeng.com/nodejs/basic.html)
 - [React入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) 
