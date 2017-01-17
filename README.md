@@ -22,6 +22,7 @@
   - [UglifyJs插件](#UglifyJs插件)
   - [HTML Webpack插件](#HTML Webpack插件)
   - [命令启动打开入口路径](#命令启动打开入口路径)
+  - [环境变量的使用](#环境变量的使用)
   - [代码分割](#代码分割)
   - [用bundle-loader分割代码](#用bundle-loader分割代码)
   - [普通模块React应用](#普通模块React应用)
@@ -169,16 +170,44 @@ $ npm install webpack@2.2.0-rc.3
 
 1、添加一个配置文件webpack.config.js；一个入口js文件main.js；一个静态页面 index.html 见[demo01](./demo01)
 
+index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>webpack demo01</title>
+</head>
+<body>
+	<script type="text/javascript" src="boudle.js"></script>
+</body>
+</html>
+```
+
+main.js
+
+```js
+document.write('<h1>hello world</h1>');
+```
+
+webpack.config.js
+
+```js
+module.exports = {
+	entry: './main.js',
+	output:{
+		filename: 'boudle.js'
+
+	}
+};
+```
+
 2、运行命令
 
 ```bash
 $ webpack
-```
+//会生成一个bundle.js文件 
 
-会生成 bundle.js
-
-
-```bash
 $ webpack-dev-server 
 //访问http://localhost:8080/index.html，你可以在浏览器中看到"hello world"
 ```
