@@ -698,9 +698,9 @@ React是一个用于构建可组合的用户界面的库,现在最热门的前�
 
 下面通过commonschunkplugin方法演示React的应用见[demo12](./demo12)
 
-当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。
+当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
-此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
+main.js
 
 ```jsx
 // main1.jsx
