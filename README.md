@@ -644,3 +644,4 @@ $ webpack-dev-server
 ## 参考资料
 
 - [Node.js 概述](http://javascript.ruanyifeng.com/nodejs/basic.html)
+- [React入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html) 
