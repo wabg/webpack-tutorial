@@ -365,7 +365,11 @@ load(function(file) {
 
 ### 普通模块React应用
 
-当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。见[demo12](./demo12)
+React是一个用于构建可组合的用户界面的库,现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html)  [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
+
+下面通过commonschunkplugin方法演示React的应用见[demo12](./demo12)
+
+当多个脚本有共同的部分，可以提取公共部分为一个单独的文件使用commonschunkplugin方法。
 
 此方法的好处是在运行多个文件时，它们的公共部分只运行一次。
 
