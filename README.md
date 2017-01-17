@@ -61,7 +61,7 @@ Node.js 是一个在浏览器外部创建互联网应用程序的框架，它基
 
 ### NPM
 
-npm(node package manager) nodejs的包管理器，用于node插件管理（安装、卸载、更新、管理依赖等）。
+npm(node package manager) node.js的包管理器，用于node插件管理（安装、卸载、更新、管理依赖等）。
 
 **是做什么的？**
 
@@ -71,9 +71,7 @@ npm(node package manager) nodejs的包管理器，用于node插件管理（安�
 
 **替代工具**
 
-因为npm安装插件是从外国服务器下载，受网络影响大，可能出现异常。
-
-1. **cnpm**：淘宝网提供的国内NPM镜像。  
+1. **cnpm**：淘宝网提供的国内NPM镜像，因为npm安装插件是从外国服务器下载，受网络影响大，可能出现异常。 
 1. **yarn**：是Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具，是为了弥补 npm 的安装包（packages）的速度不够快、拉取的 packages 可能版本不同、npm 允许在安装 packages 时执行代码可能产生安全隐患等一些缺陷而出现的
 
 
