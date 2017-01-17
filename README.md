@@ -296,6 +296,56 @@ plugins: [
     })
 ]//见[demo8](./demo08)
 ```
+### 环境变量的使用 
+
+定义一个环境变量__DEV__，通过环境变量来运行webpack-dev-server 命令。只有在开发环境中使用环境变量，才能使某些代码起作用。
+
+main.js
+
+```js
+document.write('<h1>Hello World</h1>');
+
+if (__DEV__) {
+  document.write(new Date());//当环境变量__DEV__为真时，输出日期
+}
+```
+
+index.html
+
+```html
+<html>
+<body>
+  <script src="bundle.js"></script>
+</body>
+</html>
+```
+
+webpack.config.js
+
+```js
+var webpack = require('webpack');
+var devFlagPlugin = new webpack.DefinePlugin({
+    __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))//定义环境变量
+});
+
+module.exports = {
+    entry: './main.js',
+    output: {
+      filename: 'bundle.js'
+    },
+    plugins: [devFlagPlugin]
+};
+```
+
+通过环境变量来运行webpack-dev-server 命令
+
+```bash
+# Linux & Mac
+$ env DEBUG=true webpack-dev-server
+
+# Windows
+$ DEBUG=true webpack-dev-server
+```
 
 ### 代码分割
 
