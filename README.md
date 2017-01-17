@@ -379,6 +379,33 @@ ReactDOM.render(
 );
 ```
 
+webpack.config.js
+
+```js
+module.exports = {
+    entry: './main.jsx',
+    output: {
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders:[
+            {
+                test: /\.js[x]?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                  presets: ['es2015', 'react']
+                }
+            },{
+                test: /\.css$/,
+                loader: 'style-loader!css-loader?modules'
+            }
+        ]
+    }
+};
+```
+
+
 #### 图片加载   见[demo04](./demo04)
 
 需要依赖 file-loader 和 url-loader
