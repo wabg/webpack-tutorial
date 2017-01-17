@@ -694,7 +694,7 @@ module.exports = {
 
 ### 普通模块React应用
 
-React是一个用于构建可组合的用户界面的库,现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html)  [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
+React是一个用于构建可组合的用户界面的库,现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html) 与 [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
 
 下面通过commonschunkplugin方法演示React的应用见[demo12](./demo12)
 
