@@ -96,7 +96,7 @@ npm(node package manager) node.js的包管理器，用于node插件管理（安�
 
 ## 安装
 
-首先要安装 Node.js， Node.js 自带了软件包管理器 npm,用 npm 安装 Webpack
+首先要安装[Node.js](https://nodejs.org/en/download/)， Node.js 自带了软件包管理器 npm,用 npm 安装 Webpack
 
 ### 初始化配置
 
