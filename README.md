@@ -166,7 +166,7 @@ $ npm install webpack@2.2.0-rc.3
     
 ## 实例运行
 
-### 实例标题
+### 实例代码
 
 添加一个配置文件webpack.config.js；一个入口js文件main.js；一个静态页面 index.html 见[demo01](./demo01)
 
