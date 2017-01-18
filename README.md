@@ -272,7 +272,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel',
+                loader: 'babel',   //.jsx文件使用babel处理
                 query: {
                     presets: ['es2015', 'react']
                 }
@@ -324,7 +324,7 @@ module.exports = {
     },
     module: {
         loaders:[
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.css$/, loader: 'style-loader!css-loader' }, //.css 文件使用 style-loader 和 css-loader 来处理
         ]
     }
 };
@@ -442,7 +442,7 @@ module.exports = {
     },
     module:{
         loaders:[
-            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'} //图片文件使用 url-loader 来处理，小于8kb的直接转为base64
         ]
     }
 }
