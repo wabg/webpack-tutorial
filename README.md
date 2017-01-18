@@ -17,20 +17,20 @@
   - [资源加载](#资源加载)
     - [babel加载](#babel加载)
     - [css加载](#css加载)
-    - [css组件加载](#css组件加载)
-    - [图片加载](#图片加载)
-  - [UglifyJs插件](#UglifyJs插件)
-  - [HTML Webpack插件](#HTML Webpack插件)
-  - [命令启动打开入口路径](#命令启动打开入口路径)
+    - [css组件加载](#css组件加载-见demo05)
+    - [图片加载](#图片加载---见demo04)
+  - [UglifyJs插件](#uglifyjs插件-见demo06)
+  - [HTML Webpack插件](#html-webpack插件--见demo07)
+  - [命令启动打开入口路径](#命令启动打开入口路径----见demo8)
   - [环境变量的使用](#环境变量的使用)
   - [代码分割](#代码分割)
-  - [用bundle-loader分割代码](#用bundle-loader分割代码)
-  - [普通模块React应用](#普通模块React应用)
-  - [jQuery/jslite加载](#jQuery/jslite加载)
-  - [每个模块中使用JSLite或者jQuery](#每个模块中使用JSLite或者jQuery)
+  - [用bundle-loader分割代码](#用bundle-loader分割代码-见demo11)
+  - [普通模块React应用](#普通模块React应用---见demo12)
+  - [jQuery/jslite加载](#jqueryjslite加载--见demo13)
+  - [每个模块中使用JSLite或者jQuery](#每个模块中使用jslite或者jquery-demo14)
   - [暴露全局变量](#暴露全局变量)
-  - [模块热替换](#模块热替换)
-  - [React Router 配置](#React Router 配置)
+  - [模块热替换](#模块热替换hot-module-replacemen)
+  - [React Router 配置](#react-router-配置)
 - [参考资料](#参考资料)
 
 ## 前言
@@ -967,7 +967,7 @@ $ webpack-dev-server
 不要关闭服务器,将App.js的'Hello World'改成'Hello Webpack'，保存后看看浏览器的变化。见[demo17](./demo17)
 
 
-### React Router 配置
+### React Router 配置  见[demo18](./demo18)
  * Router 与 Route 一样都是 react 组件 ，它的 history 对象是整个路由系统的核心，它暴漏了很多属性和方法在路由系统中使用；
  * Redirect 是一个重定向组件，有 from 和 to 两个属性；
  * browserHistory ：是由 React Router 创建浏览器应用推荐的 history。它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。
