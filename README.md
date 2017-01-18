@@ -30,7 +30,7 @@
   - [每个模块中使用JSLite或者jQuery](#每个模块中使用jslite或者jquery-demo14)
   - [暴露全局变量](#暴露全局变量)
   - [模块热替换](#模块热替换hot-module-replacemen)
-  - [React Router 配置](#react-router-配置)
+  - [React Router 配置](#react-router-配置--见demo18)
 - [参考资料](#参考资料)
 
 ## 前言
