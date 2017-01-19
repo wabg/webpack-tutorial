@@ -17,7 +17,7 @@
   - [资源加载](#资源加载)
     - [babel加载](#babel加载)
     - [css加载](#css加载)
-    - [css组件加载](#css组件加载-见demo05)
+    - [CSS Modules](#css-modules-见demo05)
     - [图片加载](#图片加载---见demo04)
   - [UglifyJs插件](#uglifyjs插件-见demo06)
   - [HTML Webpack插件](#html-webpack插件--见demo07)
