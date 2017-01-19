@@ -702,10 +702,87 @@ React是一个用于构建可组合的用户界面的库，是现在最热门的
 
 下面通过commonschunkplugin方法演示React的应用 
 
-当多个脚本有共同的部分，可以使用commonschunkplugin方法提取公共部分为一个单独的文件common.js。
+当多个脚本有共同的部分，可以使用commonschunkplugin方法提取公共部分为一个单独的.js文件。
 此方法的好处是:
 在加载多个文件时，它们的公共部分只加载一次；
 缩小打包文件体积，实现项目优化
+
+不使用commonschunkplugin时
+
+main.js
+
+```jsx
+// main1.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+  <h1>Hello World</h1>,
+  document.getElementById('a')
+);
+
+// main2.jsx
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+  <h2>Hello Webpack</h2>,
+  document.getElementById('b')
+);
+```
+
+index.html
+
+```html
+<html>
+  <body>
+    <div id="a"></div>
+    <div id="b"></div>
+    <script src="bundle1.js"></script>
+    <script src="bundle2.js"></script>
+  </body>
+</html>
+```
+
+webpack.config.js
+
+```js
+module.exports = {
+    entry: {
+      bundle1: './main1.jsx',
+      bundle2: './main2.jsx'
+    },
+    output: {
+      filename: '[name].js'
+    },
+    module: {
+      loaders:[
+        {
+          test: /\.js[x]?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015', 'react']
+          }
+        },
+      ]
+    }
+}
+```
+
+webpack运行之后可以看到
+
+```bash
+Hash: ad3b4921919e04babc7b
+Version: webpack 1.14.0
+Time: 3074ms
+     Asset    Size  Chunks             Chunk Names
+bundle1.js  740 kB       0  [emitted]  bundle1
+bundle2.js  740 kB       1  [emitted]  bundle2
+    + 179 hidden modules
+```
+
+使用commonschunkplugin
 
 main.js
 
@@ -772,6 +849,20 @@ module.exports = {
     ]
 }
 ```
+
+运行之后发现
+
+```bash
+Hash: d1811c6827b2519f4bd7
+Version: webpack 1.14.0
+Time: 2958ms
+     Asset       Size  Chunks             Chunk Names
+bundle1.js  298 bytes       0  [emitted]  bundle1
+bundle2.js  300 bytes       1  [emitted]  bundle2
+   init.js     742 kB       2  [emitted]  init.js
+    + 179 hidden modules
+```
+
 
 ### jQuery/jslite加载  见[demo13](./demo13)
 
