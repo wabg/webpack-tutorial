@@ -25,7 +25,7 @@
   - [环境变量的使用](#环境变量的使用)
   - [代码分割](#代码分割)
   - [用bundle-loader分割代码](#用bundle-loader分割代码-见demo11)
-  - [普通模块React应用](#普通模块React应用---见demo12)
+  - [普通模块React应用](#普通模块react应用---见demo12)
   - [jQuery/jslite加载](#jqueryjslite加载--见demo13)
   - [每个模块中使用JSLite或者jQuery](#每个模块中使用jslite或者jquery-demo14)
   - [暴露全局变量](#暴露全局变量)
