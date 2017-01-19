@@ -425,7 +425,7 @@ module.exports = {
 
 #### 图片加载   见[demo04](./demo04)
 
-需要依赖 file-loader 和 url-loader
+需要依赖 file-loader 和 url-loader，两个都必须用上，否则超过大小限制的图片无法生成到目标文件夹中
 
 index.html
 
@@ -715,9 +715,9 @@ module.exports = {
 
 React是一个用于构建可组合的用户界面的库，是现在最热门的前端框架。[了解 React](https://facebook.github.io/react/blog/2013/06/05/why-react.html) 与 [学习 React](http://www.ruanyifeng.com/blog/2015/03/react.html)
 
-下面通过commonschunkplugin方法演示React的应用 
+下面通过使用commonschunkplugin插件来演示React的应用 
 
-当多个脚本有共同的部分，可以使用commonschunkplugin方法提取公共部分为一个单独的.js文件。
+当多个脚本有共同的部分，可以使用commonschunkplugin提取公共部分为一个单独的.js文件。
 此方法的好处是:
 在加载多个文件时，它们的公共部分只加载一次；
 缩小打包文件体积，实现项目优化
