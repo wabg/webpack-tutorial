@@ -381,6 +381,13 @@ ReactDOM.render(
 );
 ```
 
+app.css
+
+```css
+.h1{color: red;}
+:global(.h2){color: blue;}
+```
+
 webpack.config.js
 
 ```js
