@@ -349,9 +349,17 @@ body {
  npm install css-loader style-loader --save
 ```
 
-#### css组件加载 见[demo05](./demo05)
+#### CSS Modules 见[demo05](./demo05)
+CSS Modules 不是将 CSS 改造成编程语言，只是加入了局部作用域和模块依赖，这恰恰是网页组件最急需的功能。
 
-css-loader?modules (查询模块的参数) 使用CSS模块的规格。加载CSS模块默认是本地作用域，如果你要将CSS作用于全局，你得将选择器放入global中如:global(.h2) 
+局部作用域
+
+CSS的规则都是全局的，任何一个组件的样式规则，都对整个页面有效。产生局部作用域的唯一方法，就是使用一个独一无二的class的名字，不会与其他选择器重名。这就是 CSS Modules 的做法。
+
+全局作用域
+
+CSS Modules 允许使用:global(.className)的语法，声明一个全局规则。凡是这样声明的class，都不会被编译成哈希字符串。
+
 
 index.html
 
