@@ -474,7 +474,7 @@ npm install url-loader file-loader --save
 
 ### UglifyJs插件 见[demo06](./demo06)
 
-Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 输出压缩版本的 bundle.js 
+Webpack 有插件系统来扩展其功能。例如：UglifyJs Plugin将 main.js 压缩，输出压缩版本的bundle.js。但加入了这个插件之后，编译的速度会明显变慢，所以一般只在生产环境启用。 
 
 main.js
 
