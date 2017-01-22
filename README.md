@@ -35,11 +35,11 @@
 
 ## 前言
 
-下面介绍webpack及与webpack相关的几个概念
+下面介绍webpack及与webpack相关的几个软件工具的概念。
 
 ### Node.js
 
-[Node.js](http://nodejs.cn/) 是一个在浏览器外部创建互联网应用程序的框架，它基于 Google 开发的 V8 JavaScript 引擎，轻量，高效，事件驱动，非阻塞I/O，特别适合运行于跨分布式设备的实时数据处理程序。
+[Node.js](http://nodejs.org/)  是一个在浏览器外部创建互联网应用程序的框架，它基于 Google 开发的 V8 JavaScript 引擎，轻量，高效，事件驱动，非阻塞I/O，特别适合运行于跨分布式设备的实时数据处理程序。
 
 **作用**
 
@@ -61,7 +61,7 @@
 
 ### NPM
 
-npm(node package manager) node.js的包管理器，用于node插件管理（安装、卸载、更新、管理依赖等）。
+[npm](https://www.npmjs.com/) (node package manager) node.js的包管理器，用于node插件管理（安装、卸载、更新、管理依赖等）。
 
 **是做什么的？**
 
@@ -77,7 +77,7 @@ npm(node package manager) node.js的包管理器，用于node插件管理（安�
 
 ### Webpack
 
-它是一个模块打包器，我们将他用于前端项目流程构建，能通过npm安装，还可以使用`cnpm`、`yarn`等工具安装，下面介绍npm安装
+[Webpack](http://webpack.github.io/)它是一个模块打包器，我们将他用于前端项目流程构建，能通过npm安装，还可以使用`cnpm`、`yarn`等工具安装，下面介绍npm安装
 
 **可以做哪些事儿？**
 
