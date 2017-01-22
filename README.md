@@ -1085,7 +1085,111 @@ $ webpack-dev-server
  * hashHistory ：这是一个你会获取到的默认 history ，如果你不指定某个 history 。它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由，支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。
  * createMemoryHistory ：不会在地址栏被操作或读取。
 
+index.html
 
+ ```html
+ <html>
+  <body>
+    <div id="app"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</htmL>
+```
+app.css
+
+```css
+header *{
+  display: inline;
+  margin: 1em;
+  border-bottom: 1px solid black;
+}
+```
+index.js
+
+```js
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
+
+require('./app.css');
+
+var App = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <header>
+          <ul>
+            <li><Link to="/app">Dashboard</Link></li>
+            <li><Link to="/inbox">Inbox</Link></li>
+            <li><Link to="/calendar">Calendar</Link></li>
+          </ul>
+          Logged in as Jane
+        </header>
+        {this.props.children}
+      </div>
+    );
+  }
+});
+
+var Dashboard = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <p>Dashboard</p>
+      </div>
+    );
+  }
+});
+
+var Inbox = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <p>Inbox</p>
+      </div>
+    );
+  }
+});
+
+var Calendar = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <p>Calendar</p>
+      </div>
+    );
+  }
+});
+
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Dashboard}/>
+      <Route path="app" component={Dashboard}/>
+      <Route path="inbox" component={Inbox}/>
+      <Route path="calendar" component={Calendar}/>
+      <Route path="*" component={Dashboard}/>
+    </Route>
+  </Router>
+), document.querySelector('#app'));
+```
+
+webpack.config.js
+
+```js
+module.exports = {
+  entry: './index.js',
+  output: {
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders:[
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' },
+    ]
+  }
+};
+```
 
 ## 参考资料
 
