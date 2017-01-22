@@ -556,7 +556,7 @@ module.exports = {
 
 ### 命令启动打开入口路径    见[demo8](./demo08)
 
-open-browser-webpack-plugin可以自动打开http://localhost:8080/,demo08 稍做更改webpack.config.js中的 module.exports.plugins 添加一个插件。
+open-browser-webpack-plugin可以自动打开http://localhost:8080/,把demo07稍做更改，在webpack.config.js中的 module.exports.plugins 添加一个插件。
 
 webpack.config.js
 
