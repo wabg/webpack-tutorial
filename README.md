@@ -989,6 +989,8 @@ ReactDOM.render(
 
 ### 模块热替换（Hot Module Replacemen）
 
+这个工具的作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
+
 现在有两种方法让webpack服务端模块热更换。
 
 1、使用webpack命令的两个子命令
@@ -1000,14 +1002,13 @@ $ webpack-dev-server --hot --inline
 --hot --inline: 添加一个指向 webpack/hot/dev-server.
 ```
 
-2、修改webpack配置文件，我这里是webpack.config.js
+2、修改webpack配置文件---webpack.config.js
 
 将`new webpack.HotModuleReplacementPlugin()`添加到plugins中。
-这个工具的作用：在交换、添加或删除模块时，应用程序继续运行而无需重新加载页面。
 
 将'webpack/hot/dev-server' 和 'webpack-dev-server/client?http://localhost:8080'添加到 entry
 
-这个是我的完整的webpack配置文件`webpack.config.js`
+修改如下：
 
 ```js
 var webpack = require('webpack');
