@@ -628,7 +628,7 @@ webpack 可以把你的代码拆分到“chunks”里面去，从而让你的代
 
 这个非常重要，构建大型应用的时候，你需要将你的代码分模块，不然你的js越来越大，加载速度越来越慢，分块也适合项目模块化，多人共同应用开发。
 
-我们在下面的例子[demo10](./demo10) 用的是CommonJs 的加载方式 require.ensure 你可以到官网看跟多的模块加载方式 
+我们在下面的例子[demo10](./demo10) 用的是CommonJs 的加载方式 require.ensure 你可以到[官网](http://webpack.github.io/docs/code-splitting.html)看更多的模块加载方式 
 
 main.js
 
