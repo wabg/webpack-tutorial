@@ -211,7 +211,7 @@ $ webpack
 //会生成一个bundle.js文件 
 
 $ webpack-dev-server 
-//访问http://localhost:8080/index.html，你可以在浏览器中看到"hello world"
+//访问http://localhost:8080/，你可以在浏览器中看到"hello world"
 ```
 
 ## 使用功能介绍
