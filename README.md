@@ -242,7 +242,7 @@ index.html
 </html>
 ```
 
-main.js
+main.jsx
 
 ```jsx
 const React = require('react');
