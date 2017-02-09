@@ -180,7 +180,8 @@ $ npm install webpack@2.2.0-rc.3
     "react-dom": "^15.4.1"
 }
 ```
-    
+更多相关内容参加[【原】nodejs全局安装和本地安装的区别](http://www.cnblogs.com/PeunZhang/p/5629329.html?winzoom=1) 
+
 ## 实例运行
 
 添加一个配置文件webpack.config.js；一个入口js文件main.js；一个静态页面 index.html 见[demo01](./demo01)
