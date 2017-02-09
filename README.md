@@ -120,12 +120,27 @@ $ npm install webpack --save    # 本地安装，存储到配置（package.json�
 ```
 
 
-**本地安装**，工具独立于每个项目，比如一些项目依赖`webpack 1.0` 一些项目依赖 `2.0` 这时可使用本地安装来构建项目。
+**本地安装** 
 
+工具独立于每个项目，比如一些项目依赖`webpack 1.0` 一些项目依赖 `2.0` 这时可使用本地安装来构建项目。
+
+本地安装会将webpack安装在跟package.json同级目录下的
+ `node_modules`下的.bin文件夹中，运行webpack时必须指定路径
+ ./node_modules/.bin/webpack。考虑到这样运行会比较繁琐，可以在配置文件package.json中的做如下定义
+
+```bash
+"scripts": {
+    "dev": "webpack"
+    } 
+```
+就可通过以下命令来快捷运行webpack
+```bash
+npm run dev
+```
 `--save` 通过这个参数，将保存配置信息至package.json（package.json是nodejs项目配置文件）  
 `--save-dev ` 保存至package.json的devDependencies节点，不指定-dev将保存至dependencies节点  
 
-**全局安装**，适用于新手初学，只做一个项目，或者做实例演示。
+**全局安装**，在任意目录下均可运行，适用于新手初学，只做一个项目，或者做实例演示。
 
 `-g` 在安装工具的时候添加这个参数，即可安装到全局。  
 
@@ -137,7 +152,7 @@ $ npm install webpack --save    # 本地安装，存储到配置（package.json�
 }
 ```
 
-本地安装，会将依赖包安装到，跟package.json同级目录下的 `node_modules` 目录。这些依赖工具通过 `require()` 或者 ES6 语法调用工具。
+这些依赖工具通过 `require()` 或者 ES6 语法调用工具。
 
 如果想要安装指定版本，使用命令如下：
 
